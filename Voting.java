@@ -14,4 +14,19 @@ public class Voting {
         this.question = question;
         this.isAnonymous = isAnonymous;
     }
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public ArrayList<String> getChoices() {
+        ArrayList<String> m = new ArrayList<>();
+        for(String s:choices.keySet()){
+            m.add(s);
+        }
+        return m;
+    }
 }
