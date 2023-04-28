@@ -6,4 +6,10 @@ public class Person {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+    public String getFirstName() {
+        return firstName;
+    }
+    public String getLastName() {
+        return lastName;
+    }
 }
