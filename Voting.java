@@ -69,4 +69,8 @@ public class Voting {
             System.out.println(" ");
         }
     }
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }
