@@ -29,4 +29,44 @@ public class Voting {
         }
         return m;
     }
+    public void createChoice(String choice) {
+        choices.put(choice, new HashSet<>());
+    }
+
+    public void vote(Person voter, ArrayList<String> voter_choices) {
+        if(!isAnonymous){
+            voters.add(voter);
+        }
+        for (String vChoices : voter_choices) {
+            String Date = LocalDate.now().toString();
+            Vote vote = new Vote(voter,Date);
+            choices.get(vChoices).add(vote);
+        }
+    }
+    public void vote(Person voter) {
+        if(!isAnonymous){
+            voters.add(voter);
+        }
+        Random r = new Random();
+        int m = r.nextInt(choices.size());
+        String Date = LocalDate.now().toString();
+        Vote vote = new Vote(voter,Date);
+        choices.get(m).add(vote);
+
+    }
+    public void printResults(){
+        for(String n:choices.keySet()){
+            System.out.print(n+" : ");
+            System.out.print(choices.get(n).size()+" ");
+        }
+    }
+    public void printVoters(){
+        for(String n:choices.keySet()){
+            System.out.println(n+" : ");
+            for(Vote s:choices.get(n)){
+                System.out.print(" " + s.getVoter().toString()+" ");
+            }
+            System.out.println(" ");
+        }
+    }
 }
